@@ -2,16 +2,20 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class Component(models.Model):
-    manufacturer = models.CharField(max_length=255)
-    model = models.CharField(max_length=255)
+class LookupTable(models.Model):
+    name = models.CharField(max_length=255)
 
     class Meta:
         abstract = True
 
 
-class LookupTable(models.Model):
-    name = models.CharField(max_length=255)
+class Manufacturer(LookupTable):
+    pass
+
+
+class Component(models.Model):
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    model = models.CharField(max_length=255)
 
     class Meta:
         abstract = True
