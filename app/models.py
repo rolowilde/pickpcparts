@@ -10,8 +10,15 @@ class Component(models.Model):
         abstract = True
 
 
-class Socket(models.Model):
+class LookupTable(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        abstract = True
+
+
+class Socket(LookupTable):
+    pass
 
 
 class Processor(Component):
@@ -35,8 +42,8 @@ class GraphicsCard(Component):
     length = models.PositiveIntegerField()
 
 
-class CaseFormFactor(models.Model):
-    name = models.CharField(max_length=255)
+class CaseFormFactor(LookupTable):
+    pass
 
 
 class Case(Component):
@@ -65,12 +72,12 @@ class Memory(Component):
     cas_latency = models.PositiveIntegerField()
 
 
-class StorageFormFactor(models.Model):
-    name = models.CharField(max_length=255)
+class StorageFormFactor(LookupTable):
+    pass
 
 
-class StorageInterface(models.Model):
-    name = models.CharField(max_length=255)
+class StorageInterface(LookupTable):
+    pass
 
 
 class Storage(Component):
@@ -106,4 +113,13 @@ class PowerSupply(Component):
 class Build(models.Model):
     name = models.TextField()
     notes = models.TextField(blank=True)
+    processor = models.ForeignKey(Processor, on_delete=models.CASCADE)
+    processor_cooler = models.ForeignKey(ProcessorCooler, on_delete=models.CASCADE)
+    graphics_card = models.ForeignKey(GraphicsCard, on_delete=models.CASCADE)
+    case = models.ForeignKey(Case, on_delete=models.CASCADE)
+    case_fans = models.ManyToManyField(CaseFan, blank=True)
+    motherboard = models.ForeignKey(Motherboard, on_delete=models.CASCADE)
+    memory = models.ManyToManyField(Memory)
+    storage = models.ManyToManyField(Storage)
+    power_supply = models.ForeignKey(PowerSupply, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
