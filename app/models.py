@@ -74,8 +74,9 @@ class MemoryType(LookupTable):
 
 
 class Memory(Component):
-    speed = models.PositiveIntegerField()
+    capacity_per_module = models.PositiveIntegerField()
     modules = models.PositiveIntegerField()
+    speed = models.PositiveIntegerField()
     first_word_latency = models.PositiveIntegerField()
     cas_latency = models.PositiveIntegerField()
     type = models.ForeignKey(MemoryType, on_delete=models.CASCADE)
@@ -84,9 +85,9 @@ class Memory(Component):
 class Motherboard(Component):
     max_memory = models.PositiveIntegerField()
     memory_slots = models.PositiveIntegerField()
+    supported_memory = models.ManyToManyField(MemoryType)
     formfactor = models.ForeignKey(CaseFormFactor, on_delete=models.CASCADE)
     socket = models.ForeignKey(Socket, on_delete=models.CASCADE)
-    supported_memory = models.ManyToManyField(MemoryType)
 
 
 class StorageFormFactor(LookupTable):
