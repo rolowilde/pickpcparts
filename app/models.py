@@ -8,6 +8,9 @@ class LookupTable(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return self.name
+
 
 class Manufacturer(LookupTable):
     pass
@@ -19,6 +22,9 @@ class Component(models.Model):
 
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return f"{self.manufacturer} {self.model}"
 
 
 class Socket(LookupTable):
