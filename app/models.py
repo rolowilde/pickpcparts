@@ -119,27 +119,26 @@ class Storage(Component):
         return f"{super().__str__()} {self.capacity_with_unit}"
 
 
+# noinspection PyTypeChecker
 class PowerSupply(Component):
-    MODULARITY = [
-        (0, "None"),
-        (1, "Semi"),
-        (2, "Full"),
-    ]
+    class Modularity(models.IntegerChoices):
+        NONE = 0
+        SEMI = 1
+        FULL = 2
 
-    EFFICIENCY = [
-        (0, "None"),
-        (1, "Plus"),
-        (2, "Bronze"),
-        (3, "Silver"),
-        (4, "Gold"),
-        (5, "Platinum"),
-        (6, "Titanium"),
-    ]
+    class Efficiency(models.IntegerChoices):
+        NONE = 0
+        PLUS = 1
+        BRONZE = 2
+        SILVER = 3
+        GOLD = 4
+        PLATINUM = 5
+        TITANIUM = 6
 
     formfactor = models.ForeignKey(CaseFormFactor, on_delete=models.CASCADE)
     wattage = models.PositiveIntegerField()
-    efficiency = models.CharField(max_length=1, choices=EFFICIENCY)
-    modularity = models.CharField(max_length=1, choices=MODULARITY)
+    efficiency = models.IntegerField(choices=Efficiency)
+    modularity = models.IntegerField(choices=Modularity)
 
 
 class Build(models.Model):
