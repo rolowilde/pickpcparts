@@ -9,3 +9,8 @@ dependencies = [
     "django-settings-env>=5.5.0",
     "psycopg[binary]>=3.2.9",
 ]
+
+[dependency-groups]
+dev = [
+    "django-browser-reload>=1.18.0",
+]
