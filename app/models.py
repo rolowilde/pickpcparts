@@ -69,11 +69,8 @@ class CaseFan(Component):
     pwm = models.BooleanField(default=False)
 
 
-class Motherboard(Component):
-    max_memory = models.PositiveIntegerField()
-    memory_slots = models.PositiveIntegerField()
-    formfactor = models.ForeignKey(CaseFormFactor, on_delete=models.CASCADE)
-    socket = models.ForeignKey(Socket, on_delete=models.CASCADE)
+class MemoryType(LookupTable):
+    pass
 
 
 class Memory(Component):
@@ -81,6 +78,15 @@ class Memory(Component):
     modules = models.PositiveIntegerField()
     first_word_latency = models.PositiveIntegerField()
     cas_latency = models.PositiveIntegerField()
+    type = models.ForeignKey(MemoryType, on_delete=models.CASCADE)
+
+
+class Motherboard(Component):
+    max_memory = models.PositiveIntegerField()
+    memory_slots = models.PositiveIntegerField()
+    formfactor = models.ForeignKey(CaseFormFactor, on_delete=models.CASCADE)
+    socket = models.ForeignKey(Socket, on_delete=models.CASCADE)
+    supported_memory = models.ManyToManyField(MemoryType)
 
 
 class StorageFormFactor(LookupTable):
