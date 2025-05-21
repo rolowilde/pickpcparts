@@ -97,6 +97,13 @@ class Storage(Component):
     form_factor = models.ForeignKey(StorageFormFactor, on_delete=models.CASCADE)
     interface = models.ForeignKey(StorageInterface, on_delete=models.CASCADE)
 
+    @property
+    def capacity_with_unit(self):
+        return f"{int(self.capacity / 1000)}TB" if self.capacity % 1000 == 0 else f"{self.capacity}GB"
+
+    def __str__(self):
+        return f"{super().__str__()} {self.capacity_with_unit}"
+
 
 class PowerSupply(Component):
     MODULARITY = [
