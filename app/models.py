@@ -81,6 +81,13 @@ class Memory(Component):
     cas_latency = models.PositiveIntegerField()
     type = models.ForeignKey(MemoryType, on_delete=models.CASCADE)
 
+    @property
+    def capacity(self):
+        return self.modules * self.capacity_per_module
+
+    def __str__(self):
+        return f"{super().__str__()} {self.capacity}"
+
 
 class Motherboard(Component):
     max_memory = models.PositiveIntegerField()
