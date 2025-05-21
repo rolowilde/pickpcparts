@@ -86,7 +86,7 @@ class Memory(Component):
         return self.modules * self.capacity_per_module
 
     def __str__(self):
-        return f"{super().__str__()} {self.capacity}GB"
+        return f"{super().__str__()} {self.capacity}GB {self.type}-{self.speed}"
 
 
 class Motherboard(Component):
