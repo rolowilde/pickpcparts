@@ -43,6 +43,7 @@ class ProcessorCooler(Component):
     rpm = models.PositiveIntegerField()
     noise_level = models.PositiveIntegerField()
     size = models.PositiveIntegerField()
+    socket = models.ManyToManyField(Socket)
 
 
 class GraphicsCard(Component):
