@@ -113,6 +113,8 @@ class PowerSupply(Component):
 class Build(models.Model):
     name = models.TextField()
     notes = models.TextField(blank=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
     processor = models.ForeignKey(Processor, on_delete=models.CASCADE)
     processor_cooler = models.ForeignKey(ProcessorCooler, on_delete=models.CASCADE)
     graphics_card = models.ForeignKey(GraphicsCard, on_delete=models.CASCADE)
