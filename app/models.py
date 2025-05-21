@@ -136,7 +136,7 @@ class PowerSupply(Component):
         (6, "Titanium"),
     ]
 
-    formfactor = models.ForeignKey(StorageFormFactor, on_delete=models.CASCADE)
+    formfactor = models.ForeignKey(CaseFormFactor, on_delete=models.CASCADE)
     wattage = models.PositiveIntegerField()
     efficiency = models.CharField(max_length=1, choices=EFFICIENCY)
     modularity = models.CharField(max_length=1, choices=MODULARITY)
