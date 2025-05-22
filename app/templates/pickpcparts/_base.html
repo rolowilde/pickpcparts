@@ -22,16 +22,16 @@
 <div class="container">
     <nav class="navbar navbar-expand sticky-top bg-body justify-content-between border-bottom border-2">
         <div class="container-fluid">
-            <a class="navbar-brand fw-medium" href="/">PickPCParts</a>
+            <a class="navbar-brand fw-medium" href="{% url 'home' %}">PickPCParts</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/builder">Builder</a>
+                    <a class="nav-link" href="{% url 'builder' %}">Builder</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/components">Components</a>
+                    <a class="nav-link" href="{% url 'components' %}">Components</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/builds">Complete Builds</a>
+                    <a class="nav-link" href="{% url 'builds' %}">Complete Builds</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -45,28 +45,8 @@
         </div>
     </nav>
     <div class="m-2">
-        <div class="card text-bg-primary" style="height: 12rem">
-            <div class="card-body align-content-center text-center">
-                <h1 class="card-title">Try out our PC builder now</h1>
-                <p class="card-text">We offer over {{ components_total }} components to build a computer of any budget
-                    and class</p>
-            </div>
-        </div>
+        {% block content %}{% endblock %}
     </div>
-    <div class="card text-center">
-        <div class="card-header">Featured Build</div>
-        <div class="card-body">
-            <h5 class="card-title">Lorem ipsum</h5>
-            <p class="card-text">dolor sit amet, consectetur adipiscing elit. Quisque vel justo rutrum, aliquet dui
-                et, rhoncus ligula. Duis vehicula nulla vitae dignissim fermentum. Vestibulum ligula mi, semper
-                gravida dolor fringilla, tincidunt commodo nibh. Integer interdum nisi sit amet justo ultrices
-                placerat. Donec at nulla quis nisl aliquam ullamcorper in in nulla. Duis orci dolor, convallis eu
-                volutpat vitae, rutrum vel mauris. Integer porttitor quam porta, semper velit ut, auctor nulla.
-                Morbi fermentum molestie dolor, quis lobortis turpis imperdiet ac.</p>
-        </div>
-        <img src="https://pcbros.tech/cdn/shop/files/DSC02157.jpg" class="card-img-bottom" alt="">
-    </div>
-</div>
 </div>
 </body>
 </html>

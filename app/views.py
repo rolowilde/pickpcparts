@@ -11,7 +11,19 @@ def get_components_total():
     return int(total_components / 10) * 10
 
 
-def index(request):
+def home(request):
     components_total = get_components_total()
     context = {"components_total": components_total}
-    return render(request, 'pickpcparts/index.html', context)
+    return render(request, 'pickpcparts/home.html', context)
+
+
+def builder(request):
+    return render(request, 'pickpcparts/builder.html')
+
+
+def components(request):
+    return render(request, 'pickpcparts/components.html')
+
+
+def builds(request):
+    return render(request, 'pickpcparts/builds.html')
