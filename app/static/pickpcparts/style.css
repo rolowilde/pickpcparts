@@ -1,0 +1,7 @@
+.nav-link-bi > .bi {
+    font-size: 1.25rem;
+}
+
+.nav-link-bi:hover {
+    cursor: pointer;
+}
