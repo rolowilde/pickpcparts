@@ -156,3 +156,6 @@ class Build(models.Model):
     storage = models.ManyToManyField(Storage)
     power_supply = models.ForeignKey(PowerSupply, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+COMPONENTS = [Processor, ProcessorCooler, GraphicsCard, Case, CaseFan, Motherboard, Memory, Storage, PowerSupply]
