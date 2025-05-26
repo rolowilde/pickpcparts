@@ -1,9 +1,6 @@
 from django.contrib import admin
 
-from .models import *
+from .models import MODELS
 
-models = [Manufacturer, Socket, Processor, ProcessorCooler, GraphicsCard, CaseFormFactor, Case, CaseFan, Motherboard,
-          Memory, StorageFormFactor, StorageInterface, Storage, PowerSupply, Build, MemoryType]
-
-for model in models:
+for model in MODELS:
     admin.site.register(model)

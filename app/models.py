@@ -1,8 +1,10 @@
+import typing
+
 from django.contrib.auth.models import User
 from django.db import models
 
 
-class LookupTable(models.Model):
+class Lookup(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
@@ -12,7 +14,7 @@ class LookupTable(models.Model):
         return self.name
 
 
-class Manufacturer(LookupTable):
+class Manufacturer(Lookup):
     pass
 
 
@@ -27,7 +29,7 @@ class Component(models.Model):
         return f"{self.manufacturer} {self.model}"
 
 
-class Socket(LookupTable):
+class Socket(Lookup):
     pass
 
 
@@ -53,7 +55,7 @@ class GraphicsCard(Component):
     length = models.PositiveIntegerField()
 
 
-class CaseFormFactor(LookupTable):
+class CaseFormFactor(Lookup):
     pass
 
 
@@ -69,7 +71,7 @@ class CaseFan(Component):
     pwm = models.BooleanField(default=False)
 
 
-class MemoryType(LookupTable):
+class MemoryType(Lookup):
     pass
 
 
@@ -97,11 +99,11 @@ class Motherboard(Component):
     socket = models.ForeignKey(Socket, on_delete=models.CASCADE)
 
 
-class StorageFormFactor(LookupTable):
+class StorageFormFactor(Lookup):
     pass
 
 
-class StorageInterface(LookupTable):
+class StorageInterface(Lookup):
     pass
 
 
@@ -158,4 +160,9 @@ class Build(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-COMPONENTS = [Processor, ProcessorCooler, GraphicsCard, Case, CaseFan, Motherboard, Memory, Storage, PowerSupply]
+# noinspection PyTypeChecker
+COMPONENTS: typing.List[Component] = \
+    [Processor, ProcessorCooler, GraphicsCard, Case, CaseFan, Motherboard, Memory, Storage, PowerSupply]
+# noinspection PyTypeChecker
+LOOKUPS: typing.List[Lookup] = [Manufacturer, Socket, CaseFormFactor, StorageFormFactor, StorageInterface, MemoryType]
+MODELS: typing.List[models.Model] = COMPONENTS + LOOKUPS
