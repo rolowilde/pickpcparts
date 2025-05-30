@@ -1,8 +1,8 @@
 from django.contrib.auth import authenticate, login as _login, logout as _logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 
-from ..forms import BootstrapLoginForm, BootstrapSignUpForm
 from ..models import COMPONENTS
 
 
@@ -26,6 +26,20 @@ def builder(request):
 
 def builds(request):
     return render(request, 'pickpcparts/builds.html')
+
+
+class BootstrapSignUpForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class': 'form-control'})
+
+
+class BootstrapLoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class': 'form-control'})
 
 
 def login(request):
