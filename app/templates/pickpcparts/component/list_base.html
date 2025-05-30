@@ -1,0 +1,26 @@
+{% extends 'pickpcparts/_base.html' %}
+
+{% block content %}
+    <table class="table table-striped table-hover">
+        <thead>
+        <th scope="col"></th>
+        {% for column in columns %}
+            <th scope="col">{{ column }}</th>
+        {% endfor %}
+        </thead>
+        <tbody>
+        {% for id, row in rows.items %}
+            <tr data-id="{{ id }}">
+                <th scope="row">
+                    <a class="btn btn-link">
+                        <i class="bi bi-plus-circle-fill"></i>
+                    </a>
+                </th>
+                {% for val in row.values %}
+                    <td style="vertical-align: center; line-height: 36px">{{ val }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
