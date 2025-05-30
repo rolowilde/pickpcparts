@@ -8,6 +8,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('builder', views.builder, name='builder'),
     path('builds', views.builds, name='builds'),
+    path('signup/', views.SignUpView.as_view(), name='signup'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
     *component.urlpatterns
 ]
 
