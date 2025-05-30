@@ -7,7 +7,7 @@ BASE_COLUMNS: Columns = (('id', ''), ('manufacturer__name', 'Manufacturer'), ('m
 
 
 class BaseComponentListView(ListView):
-    template_name = 'pickpcparts/component/list_base.html'
+    template_name = 'pickpcparts/component/list.html'
     columns = BASE_COLUMNS
 
     @property
