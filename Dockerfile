@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 ENV PATH="/app:/app/.venv/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV DEBUG=false
+ENV DJANGO_DEBUG=False
 ENTRYPOINT []
 
 EXPOSE 8000
