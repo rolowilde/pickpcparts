@@ -6,4 +6,4 @@ UL WebTech 2 practical assignment built on Django and Bootstrap. Meets all the b
 - having a GET only REST API for /build/ and /build/<id> route
 - fetching data from a third-party API on the client side
 
-Live instance: WIP
+Live instance: https://ppp.rolowil.de/
