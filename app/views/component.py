@@ -8,7 +8,7 @@ from app.models import Case, CaseFan, GraphicsCard, Memory, Motherboard, PowerSu
     Storage
 
 Columns = Tuple[Tuple[str, str], ...]
-BASE_COLUMNS: Columns = (('id', ''), ('manufacturer__name', _('Manufacturer')), ('model', _('Model')))
+BASE_COLUMNS: Columns = (('id', ''), ('manufacturer__name', 'Manufacturer'), ('model', 'Model'))
 
 
 class BaseComponentListView(ListView):
@@ -20,9 +20,8 @@ class BaseComponentListView(ListView):
         ret = tuple(col[0] for col in self.columns)
         return ret
 
-    @property
     def localized_columns(self):
-        ret = tuple(col[1] for col in self.columns)
+        ret = tuple(_(col[1]) for col in self.columns)
         return ret
 
     def get_queryset(self):
@@ -32,7 +31,7 @@ class BaseComponentListView(ListView):
         context = super().get_context_data(**kwargs)
         rows = {item.pop('id'): item for item in context['object_list']}
         context.update({
-            'columns': self.localized_columns[1:],  # remove id column from UI
+            'columns': self.localized_columns()[1:],  # remove id column from UI
             'rows': rows,
         })
         return context
@@ -42,8 +41,8 @@ class CaseListView(BaseComponentListView):
     model = Case
     columns = (
         *BASE_COLUMNS,
-        ('formfactor__name', _('Form Factor')),
-        ('external_volume', _('External Volume')),
+        ('formfactor__name', 'Form Factor'),
+        ('external_volume', 'External Volume'),
     )
 
 
@@ -51,10 +50,10 @@ class CaseFanListView(BaseComponentListView):
     model = CaseFan
     columns = (
         *BASE_COLUMNS,
-        ('size', _('Size')),
-        ('rpm', _('RPM')),
-        ('noise_level', _('Noise Level (db)')),
-        ('pwm', _('PWM')),
+        ('size', 'Size'),
+        ('rpm', 'RPM'),
+        ('noise_level', 'Noise Level (db)'),
+        ('pwm', 'PWM'),
     )
 
 
@@ -62,10 +61,10 @@ class GraphicsCardListView(BaseComponentListView):
     model = GraphicsCard
     columns = (
         *BASE_COLUMNS,
-        ('memory', _('Memory (GB)')),
-        ('core_clock', _('Core Clock (MHz)')),
-        ('boost_clock', _('Boost Clock (MHz)')),
-        ('length', _('Length (cm)')),
+        ('memory', 'Memory (GB)'),
+        ('core_clock', 'Core Clock (MHz)'),
+        ('boost_clock', 'Boost Clock (MHz)'),
+        ('length', 'Length (cm)'),
     )
 
 
@@ -74,12 +73,12 @@ class MemoryListView(BaseComponentListView):
 
     columns = (
         *BASE_COLUMNS,
-        ('total_capacity', _('Total Capacity (GB)')),
-        ('modules', _('Modules')),
-        ('speed', _('Speed (MT/s)')),
-        ('first_word_latency', _('First Word Latency (ns)')),
-        ('cas_latency', _('CAS Latency (ns)')),
-        ('type__name', _('Type')),
+        ('total_capacity', 'Total Capacity (GB)'),
+        ('modules', 'Modules'),
+        ('speed', 'Speed (MT/s)'),
+        ('first_word_latency', 'First Word Latency (ns)'),
+        ('cas_latency', 'CAS Latency (ns)'),
+        ('type__name', 'Type'),
     )
 
     def get_queryset(self):
@@ -94,11 +93,11 @@ class MotherboardListView(BaseComponentListView):
     model = Motherboard
     columns = (
         *BASE_COLUMNS,
-        ('max_memory', _('Max Memory (GB)')),
-        ('memory_slots', _('Memory Slots')),
-        ('supported_memory__name', _('Supported Memory')),
-        ('formfactor__name', _('Form Factor')),
-        ('socket__name', _('Socket')),
+        ('max_memory', 'Max Memory (GB)'),
+        ('memory_slots', 'Memory Slots'),
+        ('supported_memory__name', 'Supported Memory'),
+        ('formfactor__name', 'Form Factor'),
+        ('socket__name', 'Socket'),
     )
 
 
@@ -106,10 +105,10 @@ class PowerSupplyListView(BaseComponentListView):
     model = PowerSupply
     columns = (
         *BASE_COLUMNS,
-        ('formfactor__name', _('Form Factor')),
-        ('wattage', _('Wattage')),
-        ('efficiency_label', _('Efficiency')),
-        ('modularity_label', _('Modularity')),
+        ('formfactor__name', 'Form Factor'),
+        ('wattage', 'Wattage'),
+        ('efficiency_label', 'Efficiency'),
+        ('modularity_label', 'Modularity'),
     )
 
     def get_queryset(self):
@@ -134,11 +133,11 @@ class ProcessorListView(BaseComponentListView):
     model = Processor
     columns = (
         *BASE_COLUMNS,
-        ('core_count', _('Core Count')),
-        ('core_clock', _('Core Clock (MHz)')),
-        ('boost_clock', _('Boost Clock (MHz)')),
-        ('tdp', _('TDP (W)')),
-        ('socket__name', _('Socket')),
+        ('core_count', 'Core Count'),
+        ('core_clock', 'Core Clock (MHz)'),
+        ('boost_clock', 'Boost Clock (MHz)'),
+        ('tdp', 'TDP (W)'),
+        ('socket__name', 'Socket'),
     )
 
 
@@ -146,10 +145,10 @@ class ProcessorCoolerListView(BaseComponentListView):
     model = ProcessorCooler
     columns = (
         *BASE_COLUMNS,
-        ('rpm', _('RPM')),
-        ('noise_level', _('Noise Level (db)')),
-        ('size', _('Size (cm)')),
-        ('socket__name', _('Socket')),
+        ('rpm', 'RPM'),
+        ('noise_level', 'Noise Level (db)'),
+        ('size', 'Size (cm)'),
+        ('socket__name', 'Socket'),
     )
 
 
@@ -157,8 +156,8 @@ class StorageListView(BaseComponentListView):
     model = Storage
     columns = (
         *BASE_COLUMNS,
-        ('capacity', _('Capacity (GB)')),
-        ('cache', _('Cache (MB)')),
-        ('form_factor__name', _('Form Factor')),
-        ('interface__name', _('Interface')),
+        ('capacity', 'Capacity (GB)'),
+        ('cache', 'Cache (MB)'),
+        ('form_factor__name', 'Form Factor'),
+        ('interface__name', 'Interface'),
     )
