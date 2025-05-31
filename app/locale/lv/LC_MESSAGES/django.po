@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: app/views/component.py:34
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 02:32+0300\n"
+"POT-Creation-Date: 2025-06-01 02:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,6 +74,10 @@ msgstr "Korpusa ventilatori"
 #: app/templates/pickpcparts/_base.html:56
 msgid "Complete Builds"
 msgstr "Pabeigti datori"
+
+#: app/templates/pickpcparts/_base.html:68
+msgid "Guest"
+msgstr "Viesis"
 
 #: app/templates/pickpcparts/_base.html:79
 msgid "Log out"
@@ -308,129 +311,96 @@ msgstr "Atjaunināt datoru"
 msgid "Build deleted successfully!"
 msgstr "Dators veiksmīgi dzēsts!"
 
-#: app/views/component.py:11
 msgid "Manufacturer"
 msgstr "Ražotājs"
 
-#: app/views/component.py:11
 msgid "Model"
 msgstr "Modelis"
 
-#: app/views/component.py:46 app/views/component.py:101
-#: app/views/component.py:110 app/views/component.py:163
 msgid "Form Factor"
 msgstr "Formāts"
 
-#: app/views/component.py:47
 msgid "External Volume"
 msgstr "Ārējais tilpums"
 
-#: app/views/component.py:55
 msgid "Size"
 msgstr "Izmērs"
 
-#: app/views/component.py:56 app/views/component.py:150
 msgid "RPM"
 msgstr "Apgriezieni minūtē (RPM)"
 
-#: app/views/component.py:57 app/views/component.py:151
 msgid "Noise Level (db)"
 msgstr "Trošņa līmenis (dB)"
 
-#: app/views/component.py:58
 msgid "PWM"
 msgstr "PWM"
 
-#: app/views/component.py:66
 msgid "Memory (GB)"
 msgstr "Atmiņa (GB)"
 
-#: app/views/component.py:67 app/views/component.py:139
 msgid "Core Clock (MHz)"
 msgstr "Pamatfrekvence (MHz)"
 
-#: app/views/component.py:68 app/views/component.py:140
 msgid "Boost Clock (MHz)"
 msgstr "Paātrinājuma frekvence (MHz)"
 
-#: app/views/component.py:69
 msgid "Length (cm)"
 msgstr "Garums (cm)"
 
-#: app/views/component.py:78
 msgid "Total Capacity (GB)"
 msgstr "Kopējā ietilpība (GB)"
 
-#: app/views/component.py:79
 msgid "Modules"
 msgstr "Moduļi"
 
-#: app/views/component.py:80
 msgid "Speed (MT/s)"
 msgstr "Ātrums (MT/s)"
 
-#: app/views/component.py:81
 msgid "First Word Latency (ns)"
 msgstr "Pirmā vārda aizkave (ns)"
 
-#: app/views/component.py:82
 msgid "CAS Latency (ns)"
 msgstr "CAS aizkave (ns)"
 
-#: app/views/component.py:83
 msgid "Type"
 msgstr "Tips"
 
-#: app/views/component.py:98
 msgid "Max Memory (GB)"
 msgstr "Maksimālā atmiņa (GB)"
 
-#: app/views/component.py:99
 msgid "Memory Slots"
 msgstr "Atmiņas ligzdas"
 
-#: app/views/component.py:100
 msgid "Supported Memory"
 msgstr "Atbalstītā atmiņa"
 
-#: app/views/component.py:102 app/views/component.py:142
-#: app/views/component.py:153
 msgid "Socket"
 msgstr "Ligzda"
 
-#: app/views/component.py:111
 msgid "Wattage"
 msgstr "Jauda (W)"
 
-#: app/views/component.py:112
 msgid "Efficiency"
 msgstr "Efektivitāte"
 
-#: app/views/component.py:113
 msgid "Modularity"
 msgstr "Modularitāte"
 
-#: app/views/component.py:138
 msgid "Core Count"
 msgstr "Kodolu skaits"
 
-#: app/views/component.py:141
 msgid "TDP (W)"
 msgstr "TDP (W)"
 
-#: app/views/component.py:152
 msgid "Size (cm)"
 msgstr "Izmērs (cm)"
 
-#: app/views/component.py:161
 msgid "Capacity (GB)"
 msgstr "Ietilpība (GB)"
 
-#: app/views/component.py:162
 msgid "Cache (MB)"
 msgstr "Kešatmiņa (MB)"
 
-#: app/views/component.py:164
 msgid "Interface"
 msgstr "Interfeiss"
 
