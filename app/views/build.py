@@ -5,11 +5,12 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
+from ..mixins import JSONResponseMixin
 from ..models import Build, Processor, ProcessorCooler, GraphicsCard, Case, CaseFan, Motherboard, Memory, Storage, \
     PowerSupply
 
 
-class BuildListView(ListView):
+class BuildListView(ListView, JSONResponseMixin):
     model = Build
     template_name = 'pickpcparts/build/list.html'
     context_object_name = 'builds'
@@ -23,8 +24,13 @@ class BuildListView(ListView):
             return user_builds.union(other_builds)
         return Build.objects.all()
 
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.accepts('text/html') or 'html' in self.request.GET:
+            return super().render_to_response(context, **response_kwargs)
+        return self.render_to_json_response(context, **response_kwargs)
 
-class BuildDetailView(DetailView):
+
+class BuildDetailView(DetailView, JSONResponseMixin):
     model = Build
     template_name = 'pickpcparts/build/detail.html'
     context_object_name = 'build'
@@ -38,6 +44,11 @@ class BuildDetailView(DetailView):
         if not self.request.user.is_authenticated:
             return False
         return self.request.user == build.author or self.request.user.is_staff
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.accepts('text/html') or 'html' in self.request.GET:
+            return super().render_to_response(context, **response_kwargs)
+        return self.render_to_json_response(context, **response_kwargs)
 
 
 class BuildForm(ModelForm):
