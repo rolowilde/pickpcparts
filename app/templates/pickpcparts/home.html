@@ -17,18 +17,21 @@
         <img src="https://pcbros.tech/cdn/shop/files/DSC02157.jpg" alt="A computer"
              class="rounded-bottom-circle rounded-top-5">
     </div>
-    <form class="col w-25" action="{% url 'set_language' %}" method="post">
+    <form action="{% url 'set_language' %}" method="post" class="w-25">
         {% csrf_token %}
-        <input name="next" type="hidden" value="{{ redirect_to }}">
-        <select class="form-select" name="language">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% for lang in LANGUAGES %}
-                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
-                    {{ lang.1 }}
-                </option>
-            {% endfor %}
-        </select>
-        <button class="form-control" type="submit">{% trans "Change language" %}</button>
+        <input name="next" type="hidden" value="{{ request.get_full_path }}">
+        <div class="input-group">
+            <select name="language" class="form-select form-select-sm" onchange="this.form.submit()">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"
+                            {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                        {{ language.name_local }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
     </form>
 {% endblock %}
