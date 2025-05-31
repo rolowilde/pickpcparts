@@ -15,9 +15,7 @@
                         <h5 class="card-title">{{ build.name }}</h5>
                         <p class="card-text">{{ build.notes|truncatechars:100 }}</p>
                         <p class="text-muted mb-0">
-                            {% blocktranslate %}
-                                Created by: {{ build.author.username }} on {{ build.date_created|date:"M d, Y" }}
-                            {% endblocktranslate %}
+                            {% trans "Author" %}: {{ build.author.username }}
                         </p>
                     </div>
                 </div>

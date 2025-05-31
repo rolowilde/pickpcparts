@@ -26,14 +26,10 @@
                 <p class="card-text">{{ build.notes|linebreaks }}</p>
                 <div class="d-flex justify-content-between text-muted">
                     <small>
-                        {% blocktranslate %}
-                            Created by: {{ build.author.username }} on {{ build.date_created|date:"M d, Y" }}
-                        {% endblocktranslate %}
+                        {% trans "Author" %}: {{ build.author.username }}
                     </small>
                     <small>
-                        {% blocktranslate %}
-                            Last modified: {{ build.date_modified|date:"M d, Y" }}
-                        {% endblocktranslate %}
+                        {% trans "Last modified" %}: {{ build.date_modified|date:"M d, Y" }}
                     </small>
                 </div>
             </div>
