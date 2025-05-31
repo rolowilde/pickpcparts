@@ -1,17 +1,17 @@
 from django.urls import path, include
 
 import project.settings
-from . import component
+from . import component, build
 from .. import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('builder', views.builder, name='builder'),
-    path('builds', views.builds, name='builds'),
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
-    *component.urlpatterns
+    path('i18n/', include('django.conf.urls.i18n')),
+    *component.urlpatterns,
+    *build.urlpatterns,
 ]
 
 if project.settings.DEBUG:  # noinspection PyTypeChecker

@@ -1,0 +1,464 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-31 20:16+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#: app/templates/pickpcparts/_base.html:29
+msgid "Builder"
+msgstr "Konfigurators"
+
+#: app/templates/pickpcparts/_base.html:34
+#: app/templates/pickpcparts/build/detail.html:45
+#: app/templates/pickpcparts/build/form.html:49
+msgid "Components"
+msgstr "Komponenti"
+
+#: app/templates/pickpcparts/_base.html:38
+msgid "Processors"
+msgstr "Procesori"
+
+#: app/templates/pickpcparts/_base.html:40
+msgid "Processor Coolers"
+msgstr "Procesora dzesētāji"
+
+#: app/templates/pickpcparts/_base.html:42
+msgid "Motherboards"
+msgstr "Pamatplates"
+
+#: app/templates/pickpcparts/_base.html:43
+#: app/templates/pickpcparts/build/detail.html:57
+#: app/templates/pickpcparts/build/form.html:84
+msgid "Memory"
+msgstr "Atmiņa"
+
+#: app/templates/pickpcparts/_base.html:45
+#: app/templates/pickpcparts/build/detail.html:76
+#: app/templates/pickpcparts/build/form.html:131
+msgid "Storage"
+msgstr "Krātuve"
+
+#: app/templates/pickpcparts/_base.html:48
+msgid "Graphics Cards"
+msgstr "Grafiskās kartes"
+
+#: app/templates/pickpcparts/_base.html:50
+msgid "Power Supplies"
+msgstr "Barošanas bloki"
+
+#: app/templates/pickpcparts/_base.html:51
+msgid "Cases"
+msgstr "Korpusi"
+
+#: app/templates/pickpcparts/_base.html:52
+#: app/templates/pickpcparts/build/detail.html:95
+#: app/templates/pickpcparts/build/form.html:175
+msgid "Case Fans"
+msgstr "Korpusa ventilatori"
+
+#: app/templates/pickpcparts/_base.html:57
+msgid "Complete Builds"
+msgstr "Pabeigti datori"
+
+#: app/templates/pickpcparts/_base.html:80
+msgid "Log out"
+msgstr "Izlogoties"
+
+#: app/templates/pickpcparts/_base.html:84
+#: app/templates/pickpcparts/login.html:8
+#: app/templates/pickpcparts/login.html:31
+msgid "Log in"
+msgstr "Pieteikties"
+
+#: app/templates/pickpcparts/_base.html:85
+#: app/templates/pickpcparts/signup.html:8
+#: app/templates/pickpcparts/signup.html:29
+msgid "Sign up"
+msgstr "Reģistrēties"
+
+#: app/templates/pickpcparts/build/delete.html:9
+msgid "Delete Build"
+msgstr "Dzēst datoru"
+
+#: app/templates/pickpcparts/build/delete.html:12
+msgid "Are you sure you want to delete this build?"
+msgstr "Vai tiešām vēlaties dzēst šo datoru?"
+
+#: app/templates/pickpcparts/build/delete.html:18
+#, python-format
+msgid ""
+"\n"
+"                                Created by: %(build.author.username)s on "
+"%(build.date_created|date:\"M d, Y\")s\n"
+"                            "
+msgstr ""
+"\n"
+"                                Izveidoja: %(build.author.username)s "
+"%(build.date_created|date:\"M d, Y\")s\n"
+"                            "
+
+#: app/templates/pickpcparts/build/delete.html:29
+#: app/templates/pickpcparts/build/form.html:195
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: app/templates/pickpcparts/build/delete.html:32
+msgid "Confirm Delete"
+msgstr "Apstiprināt dzēšanu"
+
+#: app/templates/pickpcparts/build/detail.html:12
+msgid "Edit"
+msgstr "Rediģēt"
+
+#: app/templates/pickpcparts/build/detail.html:15
+msgid "Delete"
+msgstr "Dzēst"
+
+#: app/templates/pickpcparts/build/detail.html:19
+msgid "Back"
+msgstr "Atpakaļ"
+
+#: app/templates/pickpcparts/build/detail.html:29
+#, python-format
+msgid ""
+"\n"
+"                            Created by: %(build.author.username)s on "
+"%(build.date_created|date:\"M d, Y\")s\n"
+"                        "
+msgstr ""
+"\n"
+"                            Izveidots: %(build.author.username)s, "
+"%(build.date_created|date:\"M d, Y\")s\n"
+"                        "
+
+#: app/templates/pickpcparts/build/detail.html:34
+#, python-format
+msgid ""
+"\n"
+"                            Last modified: "
+"%(build.date_modified|date:\"M d, Y\")s\n"
+"                        "
+msgstr ""
+"\n"
+"                            Pēdējoreiz modificēts: "
+"%(build.date_modified|date:\"M d, Y\")s\n"
+"                        "
+
+#: app/templates/pickpcparts/build/detail.html:49
+#: app/templates/pickpcparts/build/form.html:54
+msgid "Processor"
+msgstr "Procesors"
+
+#: app/templates/pickpcparts/build/detail.html:53
+#: app/templates/pickpcparts/build/form.html:69
+msgid "Motherboard"
+msgstr "Pamatplate"
+
+#: app/templates/pickpcparts/build/detail.html:68
+#: app/templates/pickpcparts/build/form.html:101
+msgid "Graphics Card"
+msgstr "Grafiskā karte"
+
+#: app/templates/pickpcparts/build/detail.html:72
+#: app/templates/pickpcparts/build/form.html:116
+msgid "Processor Cooler"
+msgstr "Procesora dzesētājs"
+
+#: app/templates/pickpcparts/build/detail.html:86
+#: app/templates/pickpcparts/build/form.html:145
+msgid "Power Supply"
+msgstr "Barošanas bloks"
+
+#: app/templates/pickpcparts/build/detail.html:91
+#: app/templates/pickpcparts/build/form.html:160
+msgid "Case"
+msgstr "Korpuss"
+
+#: app/templates/pickpcparts/build/form.html:17
+msgid "Error"
+msgstr "Kļūda"
+
+#: app/templates/pickpcparts/build/form.html:17
+msgid "Please correct the following issues"
+msgstr "Lūdzu, izlabojiet šīs kļūdas"
+
+#: app/templates/pickpcparts/build/form.html:30
+msgid "Build Name"
+msgstr "Datora nosaukums"
+
+#: app/templates/pickpcparts/build/form.html:34
+msgid "My Awesome PC Build"
+msgstr "Mans lieliskais dators"
+
+#: app/templates/pickpcparts/build/form.html:40
+msgid "Notes"
+msgstr "Piezīmes"
+
+#: app/templates/pickpcparts/build/form.html:42
+msgid "Description or special notes about your build..."
+msgstr "Apraksts vai īpašas piezīmes par jūsu datoru..."
+
+#: app/templates/pickpcparts/build/list.html:9
+msgid "PC Builds"
+msgstr "Datori"
+
+#: app/templates/pickpcparts/build/list.html:12 app/views/build.py:107
+msgid "Create New Build"
+msgstr "Izveidot jaunu datoru"
+
+#: app/templates/pickpcparts/build/list.html:25
+msgid "You"
+msgstr "Jūs"
+
+#: app/templates/pickpcparts/build/list.html:47
+msgid "Modified"
+msgstr "Modificēts"
+
+#: app/templates/pickpcparts/build/list.html:50
+msgid "View Details"
+msgstr "Skatīt detaļas"
+
+#: app/templates/pickpcparts/build/list.html:59
+msgid "No builds found."
+msgstr "Nav atrasti datori."
+
+#: app/templates/pickpcparts/build/list.html:60
+msgid "Create Your First Build!"
+msgstr "Izveidojiet savu pirmo datoru!"
+
+#: app/templates/pickpcparts/home.html:9
+msgid "Try out our PC builder now"
+msgstr "Izmēģiniet mūsu datoru konstruktoru jau tagad"
+
+#: app/templates/pickpcparts/home.html:11
+#, python-format
+msgid ""
+"\n"
+"                        We offer over %(components_total)s components to "
+"build a computer of any budget and class\n"
+"                    "
+msgstr ""
+"\n"
+"                        Mēs piedāvājam vairāk nekā %(components_total)s "
+"komponenšu, lai izveidotu datoru jebkuram budžetam un klasei\n"
+"                    "
+
+#: app/templates/pickpcparts/home.html:32
+msgid "Change language"
+msgstr "Nomainīt valodu"
+
+#: app/templates/pickpcparts/login.html:12
+msgid "Login failed!"
+msgstr "Pieteikšanās neizdevās!"
+
+#: app/templates/pickpcparts/login.html:12
+msgid "Please check your credentials and try again."
+msgstr "Lūdzu, pārbaudiet savus datus un mēģiniet vēlreiz."
+
+#: app/templates/pickpcparts/login.html:14
+msgid "Close"
+msgstr "Aizvērt"
+
+#: app/templates/pickpcparts/login.html:22
+#: app/templates/pickpcparts/signup.html:12
+msgid "Username"
+msgstr "Lietotājvārds"
+
+#: app/templates/pickpcparts/login.html:27
+#: app/templates/pickpcparts/signup.html:19
+msgid "Password"
+msgstr "Parole"
+
+#: app/templates/pickpcparts/signup.html:23
+msgid "Confirm password"
+msgstr "Apstipriniet paroli"
+
+#: app/views/build.py:73
+#, python-brace-format
+msgid "Incompatible motherboard socket ({ms}) and processor socket ({ps})."
+msgstr "Nesaderīga pamatplates ligzda ({ms}) un procesora ligzda ({ps})."
+
+#: app/views/build.py:77
+#, fuzzy, python-brace-format
+#| msgid "Incompatible cooler socket ({cs}) and processor socket ({ps})."
+msgid "Incompatible cooler socket (cs}) and processor socket ({ps})."
+msgstr "Nesaderīga dzesētāja ligzda ({cs}) un procesora ligzda ({ps})."
+
+#: app/views/build.py:85
+#, python-brace-format
+msgid ""
+"Incompatible motherboard form factor ({mf}) and case form factor ({cf})."
+msgstr ""
+"Nesaderīgs pamatplates formfaktors ({mf}) un korpusa formfaktors ({cf})."
+
+#: app/views/build.py:89
+#, python-brace-format
+msgid "Incompatible power supply ({pf}) and case form factor ({cf})."
+msgstr ""
+"Nesaderīgs barošanas bloka formfaktors ({pf}) un korpusa formfaktors ({cf})."
+
+#: app/views/build.py:102
+msgid "Build created successfully!"
+msgstr "Dators veiksmīgi izveidots!"
+
+#: app/views/build.py:108
+msgid "Create Build"
+msgstr "Jauns dators"
+
+#: app/views/build.py:123
+msgid "Build updated successfully!"
+msgstr "Dators veiksmīgi atjaunināts!"
+
+#: app/views/build.py:128
+#, python-brace-format
+msgid "Update Build: {name}"
+msgstr "Atjaunināt datoru: {name}"
+
+#: app/views/build.py:129
+msgid "Update Build"
+msgstr "Atjaunināt datoru"
+
+#: app/views/build.py:148
+msgid "Build deleted successfully!"
+msgstr "Dators veiksmīgi dzēsts!"
+
+#: app/views/component.py:11
+msgid "Manufacturer"
+msgstr "Ražotājs"
+
+#: app/views/component.py:11
+msgid "Model"
+msgstr "Modelis"
+
+#: app/views/component.py:45 app/views/component.py:100
+#: app/views/component.py:109 app/views/component.py:162
+msgid "Form Factor"
+msgstr "Formāts"
+
+#: app/views/component.py:46
+msgid "External Volume"
+msgstr "Ārējais tilpums"
+
+#: app/views/component.py:54
+msgid "Size"
+msgstr "Izmērs"
+
+#: app/views/component.py:55 app/views/component.py:149
+msgid "RPM"
+msgstr "Apgriezieni minūtē (RPM)"
+
+#: app/views/component.py:56 app/views/component.py:150
+msgid "Noise Level (db)"
+msgstr "Trošņa līmenis (dB)"
+
+#: app/views/component.py:57
+msgid "PWM"
+msgstr "PWM"
+
+#: app/views/component.py:65
+msgid "Memory (GB)"
+msgstr "Atmiņa (GB)"
+
+#: app/views/component.py:66 app/views/component.py:138
+msgid "Core Clock (MHz)"
+msgstr "Pamatfrekvence (MHz)"
+
+#: app/views/component.py:67 app/views/component.py:139
+msgid "Boost Clock (MHz)"
+msgstr "Paātrinājuma frekvence (MHz)"
+
+#: app/views/component.py:68
+msgid "Length (cm)"
+msgstr "Garums (cm)"
+
+#: app/views/component.py:77
+msgid "Total Capacity (GB)"
+msgstr "Kopējā ietilpība (GB)"
+
+#: app/views/component.py:78
+msgid "Modules"
+msgstr "Moduļi"
+
+#: app/views/component.py:79
+msgid "Speed (MT/s)"
+msgstr "Ātrums (MT/s)"
+
+#: app/views/component.py:80
+msgid "First Word Latency (ns)"
+msgstr "Pirmā vārda aizkave (ns)"
+
+#: app/views/component.py:81
+msgid "CAS Latency (ns)"
+msgstr "CAS aizkave (ns)"
+
+#: app/views/component.py:82
+msgid "Type"
+msgstr "Tips"
+
+#: app/views/component.py:97
+msgid "Max Memory (GB)"
+msgstr "Maksimālā atmiņa (GB)"
+
+#: app/views/component.py:98
+msgid "Memory Slots"
+msgstr "Atmiņas ligzdas"
+
+#: app/views/component.py:99
+msgid "Supported Memory"
+msgstr "Atbalstītā atmiņa"
+
+#: app/views/component.py:101 app/views/component.py:141
+#: app/views/component.py:152
+msgid "Socket"
+msgstr "Ligzda"
+
+#: app/views/component.py:110
+msgid "Wattage"
+msgstr "Jauda (W)"
+
+#: app/views/component.py:111
+msgid "Efficiency"
+msgstr "Efektivitāte"
+
+#: app/views/component.py:112
+msgid "Modularity"
+msgstr "Modularitāte"
+
+#: app/views/component.py:137
+msgid "Core Count"
+msgstr "Kodolu skaits"
+
+#: app/views/component.py:140
+msgid "TDP (W)"
+msgstr "TDP (W)"
+
+#: app/views/component.py:151
+msgid "Size (cm)"
+msgstr "Izmērs (cm)"
+
+#: app/views/component.py:160
+msgid "Capacity (GB)"
+msgstr "Ietilpība (GB)"
+
+#: app/views/component.py:161
+msgid "Cache (MB)"
+msgstr "Kešatmiņa (MB)"
+
+#: app/views/component.py:163
+msgid "Interface"
+msgstr "Interfeiss"

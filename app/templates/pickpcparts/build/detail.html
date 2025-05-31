@@ -1,0 +1,112 @@
+{% extends 'pickpcparts/_base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>{{ build.name }}</h1>
+            <div>
+                {% if can_edit %}
+                    <a href="{% url 'build-update' build.pk %}" class="btn btn-warning">
+                        <i class="bi bi-pencil"></i> {% trans "Edit" %}
+                    </a>
+                    <a href="{% url 'build-delete' build.pk %}" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> {% trans "Delete" %}
+                    </a>
+                {% endif %}
+                <a href="{% url 'builds' %}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> {% trans "Back" %}
+                </a>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <p class="card-text">{{ build.notes|linebreaks }}</p>
+                <div class="d-flex justify-content-between text-muted">
+                    <small>
+                        {% blocktranslate %}
+                            Created by: {{ build.author.username }} on {{ build.date_created|date:"M d, Y" }}
+                        {% endblocktranslate %}
+                    </small>
+                    <small>
+                        {% blocktranslate %}
+                            Last modified: {{ build.date_modified|date:"M d, Y" }}
+                        {% endblocktranslate %}
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card mb-4">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">{% trans "Components" %}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>{% trans "Processor" %}:</strong>
+                        {{ build.processor.manufacturer.name }} {{ build.processor.model }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Motherboard" %}:</strong>
+                        {{ build.motherboard.manufacturer.name }} {{ build.motherboard.model }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Memory" %}:</strong>
+                        <ul>
+                            {% for mem in build.memory.all %}
+                                <li>
+                                    {{ mem.manufacturer.name }} {{ mem.model }} ({{ mem.capacity_per_module }}GB
+                                    x {{ mem.modules }})
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Graphics Card" %}:</strong>
+                        {{ build.graphics_card.manufacturer.name }} {{ build.graphics_card.model }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Processor Cooler" %}:</strong>
+                        {{ build.processor_cooler.manufacturer.name }} {{ build.processor_cooler.model }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Storage" %}:</strong>
+                        <ul>
+                            {% for drive in build.storage.all %}
+                                <li>
+                                    {{ drive.manufacturer.name }} {{ drive.model }} ({{ drive.capacity }}GB)
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Power Supply" %}:</strong>
+                        {{ build.power_supply.manufacturer.name }} {{ build.power_supply.model }}
+                        ({{ build.power_supply.wattage }}W)
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Case" %}:</strong>
+                        {{ build.case.manufacturer.name }} {{ build.case.model }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>{% trans "Case Fans" %}:</strong>
+                        {% if build.case_fans.all %}
+                            <ul>
+                                {% for fan in build.case_fans.all %}
+                                    <li>
+                                        {{ fan.manufacturer.name }} {{ fan.model }} ({{ fan.size }}mm)
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            None
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

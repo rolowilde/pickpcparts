@@ -159,6 +159,13 @@ class Build(models.Model):
     power_supply = models.ForeignKey(PowerSupply, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    @property
+    def total_memory(self):
+        memory = 0
+        for m in self.memory.all():
+            memory += m.capacity
+        return memory
+
 
 # noinspection PyTypeChecker
 COMPONENTS: typing.List[Component] = \

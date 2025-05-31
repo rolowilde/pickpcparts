@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,27 +26,35 @@
             <a class="navbar-brand fw-medium" href="{% url 'home' %}">PickPCParts</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'builder' %}">Builder</a>
+                    <a class="nav-link" href="{% url 'build-create' %}">{% trans "Builder" %}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        Components
+                        {% trans "Components" %}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'component-processor-list' %}">Processors</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-cooler-list' %}">Processor Coolers</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-motherboard-list' %}">Motherboards</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-memory-list' %}">Memory</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-storage-list' %}">Storage</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-graphics-list' %}">Graphics Cards</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-power-list' %}">Power Supplies</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-case-list' %}">Cases</a></li>
-                        <li><a class="dropdown-item" href="{% url 'component-fan-list' %}">Case Fans</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'component-processor-list' %}">{% trans "Processors" %}</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'component-cooler-list' %}">{% trans "Processor Coolers" %}</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'component-motherboard-list' %}">{% trans "Motherboards" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'component-memory-list' %}">{% trans "Memory" %}</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'component-storage-list' %}">{% trans "Storage" %}</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'component-graphics-list' %}">{% trans "Graphics Cards" %}</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'component-power-list' %}">{% trans "Power Supplies" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'component-case-list' %}">{% trans "Cases" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'component-fan-list' %}">{% trans "Case Fans" %}</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'builds' %}">Complete Builds</a>
+                    <a class="nav-link" href="{% url 'builds' %}">{% trans "Complete Builds" %}</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -67,12 +76,13 @@
                             <li>
                                 <form action="{% url 'logout' %}" method="post" class="d-inline">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-link dropdown-item">Log out</button>
+                                    <button type="submit"
+                                            class="btn btn-link dropdown-item">{% trans "Log out" %}</button>
                                 </form>
                             </li>
                         {% else %}
-                            <li><a class="dropdown-item" href="{% url 'login' %}">Log in</a></li>
-                            <li><a class="dropdown-item" href="{% url 'signup' %}">Sign up</a></li>
+                            <li><a class="dropdown-item" href="{% url 'login' %}">{% trans "Log in" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'signup' %}">{% trans "Sign up" %}</a></li>
                         {% endif %}
                     </ul>
                 </li>

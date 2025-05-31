@@ -1,30 +1,32 @@
 {% extends 'pickpcparts/_base.html' %}
 
+{% load i18n %}
+
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2 class="mb-4">Sign Up</h2>
+            <h2 class="mb-4">{% trans "Sign up" %}</h2>
             <form method="post">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label class="form-label">Username</label>
+                    <label class="form-label">{% trans "Username" %}</label>
                     {{ form.username }}
                     {% if form.username.errors %}
                         <div class="text-danger">{{ form.username.errors }}</div>
                     {% endif %}
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Password</label>
+                    <label class="form-label">{% trans "Password" %}</label>
                     {{ form.password1 }}
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Confirm Password</label>
+                    <label class="form-label">{% trans "Confirm password" %}</label>
                     {{ form.password2 }}
                     {% if form.password2.errors %}
                         <div class="text-danger">{{ form.password2.errors }}</div>
                     {% endif %}
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                <button type="submit" class="btn btn-primary w-100">{% trans "Sign up" %}</button>
             </form>
         </div>
     </div>

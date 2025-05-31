@@ -20,14 +20,6 @@ def home(request):
     return render(request, 'pickpcparts/home.html', context)
 
 
-def builder(request):
-    return render(request, 'pickpcparts/builder.html')
-
-
-def builds(request):
-    return render(request, 'pickpcparts/builds.html')
-
-
 class BootstrapSignUpForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

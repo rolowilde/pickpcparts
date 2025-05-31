@@ -1,0 +1,205 @@
+{% extends 'pickpcparts/_base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">{{ title }}</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <strong>{% trans "Error" %}!</strong> {% trans "Please correct the following issues" %}:
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ field|title }}: {{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label">{% trans "Build Name" %}</label>
+                            <input type="text" name="name"
+                                   class="form-control"
+                                   value="{{ form.name.value|default:'' }}"
+                                   placeholder="{% trans "My Awesome PC Build" %}">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label">{% trans "Notes" %}</label>
+                            <textarea name="notes" class="form-control" rows="3"
+                                      placeholder="{% trans "Description or special notes about your build..." %}">{{ form.notes.value|default:'' }}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="card h-100">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0">{% trans "Components" %}</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Processor -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Processor" %}</label>
+                                    <select name="processor" class="form-select">
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.processor.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if form.processor.value|stringformat:"s" == choice.pk|stringformat:"s" %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Motherboard -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Motherboard" %}</label>
+                                    <select name="motherboard" class="form-select">
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.motherboard.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if form.motherboard.value|stringformat:"s" == choice.pk|stringformat:"s" %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Memory -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Memory" %}</label>
+                                    <select name="memory" class="form-select" size="5" multiple>
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.memory.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if choice.pk in form.memory.value %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }}
+                                                {{ choice.modules }}x{{ choice.capacity_per_module }}GB
+                                                {{ choice.type }} {{ choice.speed }} MHz CL{{ choice.cas_latency }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Graphics Card -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Graphics Card" %}</label>
+                                    <select name="graphics_card" class="form-select">
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.graphics_card.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if form.graphics_card.value|stringformat:"s" == choice.pk|stringformat:"s" %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Processor Cooler -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Processor Cooler" %}</label>
+                                    <select name="processor_cooler" class="form-select">
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.processor_cooler.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if form.processor_cooler.value|stringformat:"s" == choice.pk|stringformat:"s" %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Storage -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Storage" %}</label>
+                                    <select name="storage" class="form-select" size="5" multiple>
+                                        <option value="">---------</option>
+                                        {% for choice in form.fields.storage.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if choice.pk in form.storage.value %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }} {{ choice.capacity }}GB
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Power Supply -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Power Supply" %}</label>
+                                    <select name="power_supply" class="form-select">
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.power_supply.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if form.power_supply.value|stringformat:"s" == choice.pk|stringformat:"s" %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }} {{ choice.wattage }}W {{ choice.formfactor }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Case -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Case" %}</label>
+                                    <select name="case" class="form-select">
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.case.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if form.case.value|stringformat:"s" == choice.pk|stringformat:"s" %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }} {{ choice.formfactor }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- Case Fans -->
+                                <div class="mb-3">
+                                    <label class="form-label">{% trans "Case Fans" %}</label>
+                                    <select name="case_fans" class="form-select" size="3" multiple>
+                                        <option value="">---------</option>
+
+                                        {% for choice in form.fields.case_fans.queryset %}
+                                            <option value="{{ choice.pk }}"
+                                                    {% if choice.pk in form.case_fans.value %}selected{% endif %}>
+                                                {{ choice.manufacturer.name }} {{ choice.model }} ({{ choice.size }}mm)
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="
+                        {% if object %}{% url 'build-detail' object.pk %}{% else %}{% url 'builds' %}{% endif %}"
+                           class="btn btn-secondary">
+                            {% trans "Cancel" %}
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            {{ submit_text }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
