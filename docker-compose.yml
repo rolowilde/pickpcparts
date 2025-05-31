@@ -1,0 +1,47 @@
+services:
+  caddy:
+    image: caddy:2.10-alpine
+    environment:
+      CADDY_ADDRESS: ${CADDY_ADDRESS}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - public
+
+  db:
+    image: postgres:17.5-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - private
+
+  app:
+    build:
+      context: .
+    environment:
+      DJANGO_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_ALLOWED_HOSTS: localhost,app,${CADDY_ADDRESS}
+    depends_on:
+      - db
+    networks:
+      - private
+      - public
+
+networks:
+  public:
+  private:
+
+volumes:
+  pg_data:
+  caddy_data:
+  caddy_config:

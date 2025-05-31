@@ -1,6 +1,5 @@
 from django.urls import path, include
 
-import project.settings
 from . import component, build
 from .. import views
 
@@ -13,8 +12,3 @@ urlpatterns = [
     *component.urlpatterns,
     *build.urlpatterns,
 ]
-
-if project.settings.DEBUG:  # noinspection PyTypeChecker
-    urlpatterns.extend([
-        path('__reload__/', include("django_browser_reload.urls")),
-    ])

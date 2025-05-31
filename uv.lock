@@ -26,30 +26,17 @@ wheels = [
 ]
 
 [[package]]
-name = "django-browser-reload"
-version = "1.18.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "asgiref" },
-    { name = "django" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/3b/41/84eaa4f2b7f764e56e01c4ee49aa12bdea30ae50fd0d3ef7c2690b0c4ec2/django_browser_reload-1.18.0.tar.gz", hash = "sha256:c5f0b134723cbf2a0dc9ae1ee1d38e42db28fe23c74cdee613ba3ef286d04735", size = 14319, upload-time = "2025-02-06T22:14:40.799Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e4/9d/1322dc4bce4982d1eadd3a62802c996ae0303aad13d9ad88c1d35025f73d/django_browser_reload-1.18.0-py3-none-any.whl", hash = "sha256:ed4cc2fb83c3bf6c30b54107a1a6736c0b896e62e4eba666d81005b9f2ecf6f8", size = 12230, upload-time = "2025-02-06T22:14:36.87Z" },
-]
-
-[[package]]
 name = "django-settings-env"
-version = "5.5.0"
+version = "5.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
     { name = "envex" },
     { name = "yarl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1d/4c/4db28a3f36454c69de4298554bf78af12e2ef0409deae096019527d601ad/django_settings_env-5.5.0.tar.gz", hash = "sha256:2f5f54915c82a1868553da689c75d30744fab9f1e0b4e6a7f925486bfabd82b8", size = 19494, upload-time = "2025-05-18T07:46:15.3Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8f/4f/3ae86bb05efddd358ce42686efac943827f1e41a9156e3a11e55c32657fc/django_settings_env-5.6.0.tar.gz", hash = "sha256:c862e0d746ab44805d190e62acdaf5119aab6a03fdb2fbfee481e027bd121e72", size = 19770, upload-time = "2025-05-25T11:48:13.964Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/58/2e/91a2bd2222a467f1f5a5c125dcd01ddfb5d461c559662de485f842e84733/django_settings_env-5.5.0-py3-none-any.whl", hash = "sha256:98792d40bba4b48e81a054cad7a4341fb96af99fd82bd4110bf37c4cdba96260", size = 19664, upload-time = "2025-05-18T07:46:14.016Z" },
+    { url = "https://files.pythonhosted.org/packages/59/9d/9b922e101c87a3098ad540b5c44d658de5787c801896692e4e4cdf486e9d/django_settings_env-5.6.0-py3-none-any.whl", hash = "sha256:2f97e3fb81355cedcfa932f1b6d6ef8ea7bed188cc10da45f7cdabd001f31f83", size = 20696, upload-time = "2025-05-25T11:48:12.63Z" },
 ]
 
 [[package]]
@@ -62,6 +49,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/70/08/2e52f2e5e0dfcc4631631202a041c605764cd394cb36a8cc23f841d4b99d/envex-4.2.0.tar.gz", hash = "sha256:60d7cb88a5d2799e76378ddb35a8358bf8193785e238e0ffd3cfa3f96790c053", size = 29857, upload-time = "2025-04-24T14:09:31.085Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a0/34/4506f3f62b2dc34f44b02fe1e6789ac5537e0acce72a7772980e35fbf78d/envex-4.2.0-py3-none-any.whl", hash = "sha256:94d48d48aaa3f816cfa4ae934f57dcc7696de524f49da1efb45aa8c91c444dc9", size = 30647, upload-time = "2025-04-24T14:09:30.102Z" },
+]
+
+[[package]]
+name = "gunicorn"
+version = "23.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/34/72/9614c465dc206155d93eff0ca20d42e1e35afc533971379482de953521a4/gunicorn-23.0.0.tar.gz", hash = "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec", size = 375031, upload-time = "2024-08-10T20:25:27.378Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cb/7d/6dac2a6e1eba33ee43f318edbed4ff29151a49b5d37f080aad1e6469bca4/gunicorn-23.0.0-py3-none-any.whl", hash = "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d", size = 85029, upload-time = "2024-08-10T20:25:24.996Z" },
 ]
 
 [[package]]
@@ -117,29 +116,32 @@ wheels = [
 ]
 
 [[package]]
+name = "packaging"
+version = "25.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f", size = 165727, upload-time = "2025-04-19T11:48:59.673Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484", size = 66469, upload-time = "2025-04-19T11:48:57.875Z" },
+]
+
+[[package]]
 name = "pickpcparts"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "django" },
     { name = "django-settings-env" },
+    { name = "gunicorn" },
     { name = "psycopg", extra = ["binary"] },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "django-browser-reload" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=5.2.1" },
-    { name = "django-settings-env", specifier = ">=5.5.0" },
+    { name = "django-settings-env", specifier = ">=5.6.0" },
+    { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2.9" },
 ]
-
-[package.metadata.requires-dev]
-dev = [{ name = "django-browser-reload", specifier = ">=1.18.0" }]
 
 [[package]]
 name = "propcache"

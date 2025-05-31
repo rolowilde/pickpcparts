@@ -35,10 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-if DEBUG: INSTALLED_APPS.extend([
-    "django_browser_reload",
-])
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,10 +45,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-if DEBUG: MIDDLEWARE.extend([
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
-])
 
 ROOT_URLCONF = 'project.urls'
 
