@@ -4,6 +4,6 @@ UL WebTech 2 practical assignment built on Django and Bootstrap. Meets all the b
 
 - applying language from 'accept-language' header if session cookie unset
 - having a GET only REST API for /build/ and /build/<id> route
-- fetching data from a third-party API on the client side
+- fetching data from a third-party API and caching it on the server side
 
 Live instance: https://ppp.rolowil.de/
