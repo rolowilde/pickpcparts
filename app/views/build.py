@@ -1,5 +1,10 @@
+import json
+import random
+import urllib.request
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.cache import cache
 from django.forms import ModelForm
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
@@ -38,6 +43,18 @@ class BuildDetailView(DetailView, JSONResponseMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['can_edit'] = self.can_edit_build(self.object)
+
+        price_key = 'build_price_' + str(context['build'].id)
+        price_val = cache.get(price_key)
+        if not price_val:
+            res = json.loads(
+                urllib.request.urlopen(f'https://dummyjson.com/http/200/{random.randint(500, 4500)}').read())[
+                'message']
+            cache.set(price_key, res)
+            price_val = res
+
+        context['price'] = price_val
+
         return context
 
     def can_edit_build(self, build):
